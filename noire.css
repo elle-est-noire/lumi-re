@@ -1,0 +1,178 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont,
+               "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  /* background-color: #282822; */
+  /* background-color: #0d1117; */
+  background-color: #002b36;
+  /* color: #ffffff; */
+  /* color: #93a1a1; */
+  color: #f0f6fc;
+  font-size: 15px;
+  /* 文字間隔の調整の設定 */
+  letter-spacing: 1.5px;
+  
+  /* 行間の設定 */
+  line-height: 1.75;
+  /*
+    OpenTypeフォントのメトリクスカーニング機能の有効化
+    normal：メトリクスカーニングの実施
+    none：カーニングを行わない
+    auto：用字系にあわせてユーザエージェントが判断 (初期値)
+  */
+  font-kerning: auto;
+  }
+
+  /* a:link { color: #6dbdfa; } */
+  a:link { color: #79c0ff; }
+  /* a:visited { color: #bcf0c0; } */
+  a:visited { color: #d2a8ff; }
+  /* a:hover { color: #ff0000; }
+  a:active { color: #ff8000; } */
+  div  {
+    margin-top : 30px;
+    margin-bottom: 30px;
+    margin-right: 70px;
+    margin-left: 70px;
+    padding : 20px ;
+    /* border : 5px solid maroon ; */
+    /* background-color : lightgreen ; */
+}
+
+.def {
+  position: relative;
+  /* display: flex; */
+  margin-top: 41px;
+  margin-bottom: 10px;
+  padding: 0.5em 1em;
+  border: 5px solid #62c1ce;
+  display: flex;
+}
+.def legend {
+  position: absolute;
+  display: inline-block;
+  top: -31px;
+  left: -5px;
+  padding: 3px 10px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 17px;
+  background: #62c1ce;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+.def div {
+  text-indent: 2em;
+  margin: 5px;
+  padding: 5px;
+}
+
+.thm {
+  position: relative;
+  margin-top: 41px;
+  margin-bottom: 10px;
+  padding: 0.5em 1em;
+  border: 5px solid #ff0099;
+  display: flex;
+}
+.thm legend {
+  position: absolute;
+  display: inline-block;
+  top: -31px;
+  left: -5px;
+  padding: 3px 10px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 17px;
+  background: #ff0099;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+.thm div {
+  text-indent: 2em;
+  margin: 0;
+  padding: 10px;
+}
+
+.proof {
+  position: relative;
+  padding: 0.25em 1em;
+  margin: 2em 0;
+  top: 0;
+}
+.proof:before, .proof:after{
+  position: absolute;
+  top: 0;
+  content:'';
+  width: 10px;
+  height: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.proof:before{
+  border-left: dotted 2px #15adc1;
+  border-top: dotted 2px #15adc1;
+  border-bottom: dotted 2px #15adc1;
+  left: 0;
+}
+.proof:after{
+  border-top: dotted 2px #15adc1;
+  border-right: dotted 2px #15adc1;
+  border-bottom: dotted 2px #15adc1;
+  right: 0;
+}
+.proof summary {
+  font-weight: bold;
+}
+.proof div {
+  text-indent: 2em;
+  padding: 10px 5px 0 5px;
+  margin: 0;
+}
+/* 
+ol {
+  counter-reset: item;
+  list-style-type: none!important;
+  margin-left: 3.5em;
+}
+ol li {
+  text-indent: -1.3em;
+  padding-left: 1.3em;
+  position: relative;
+}
+ol li:before {
+  counter-increment: item;
+  content: "("counter(item, lower-roman)")";
+  display: inline-block;
+  margin-left: -3em;
+  width: 3em;
+  text-align: right;
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+ol {
+	/* margin-left: 3.5em; サイトに合せて調整 */
+  counter-reset: cnt;
+}
+
+ol li {
+	list-style-type: none;
+	counter-increment: cnt;
+	position: relative;
+  text-indent: 0;
+  padding-left: 0;
+}
+
+ol li:before {
+	content: "(" counter(cnt, lower-roman) ")";
+	display: inline-block;
+	margin-left: -4.5em; /* サイトに合せて調整 */
+	width: 4em; /* サイトに合せて調整 */
+	text-align: right;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
