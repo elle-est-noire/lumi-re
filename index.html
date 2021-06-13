@@ -8,47 +8,47 @@
 </head>
 
 <body>
-    <fieldset class="def">
-      <legend>定義4.6</legend>
-      <div>
-        \(k\ge 1\) に対して，\(\omega=\sum_Ia_Idx^I\in\Omega^k(U)\) ならば，
-        $d\omega=\ds\sum_Ida_I^dx^I=\sum_I\parn{\sum_j\pdv{a_I}{x^j}dx^j}\land
-        dx^I\in\Omega^{k+1}(U)．$
-      </div>
-    </fieldset>
-    <fieldset class="thm">
-      <legend>命題4.9（外微分の特徴づけ）</legend>
-      <div>$D\colon\Omega^\ast(U)\to\Omega^\ast(U)$ が
-        <ol>
-          <li>次数\(1\) の反導分，あああああああああああああああああ</li>
-          <li>$D^2=0$，</li>
-          <li>\(f\in C^\infty(U)\) と \(X\in\mathfrak{X}(U)\) に対して \(Df(X)=Xf\) </li>
-        </ol>
-        ならば，\(D=d\)．
-      </div>
-    </fieldset>
+  <fieldset class="def">
+    <legend>定義4.6</legend>
+    <div>
+      \(k\ge 1\) に対して，\(\omega=\sum_Ia_Idx^I\in\Omega^k(U)\) ならば，
+      $d\omega=\ds\sum_Ida_I^dx^I=\sum_I\parn{\sum_j\pdv{a_I}{x^j}dx^j}\land
+      dx^I\in\Omega^{k+1}(U)．$
+    </div>
+  </fieldset>
+  <fieldset class="thm">
+    <legend>命題4.9（外微分の特徴づけ）</legend>
+    <div>$D\colon\Omega^\ast(U)\to\Omega^\ast(U)$ が
+      <ol>
+        <li>次数\(1\) の反導分，あああああああああああああああああ</li>
+        <li>$D^2=0$，</li>
+        <li>\(f\in C^\infty(U)\) と \(X\in\mathfrak{X}(U)\) に対して \(Df(X)=Xf\) </li>
+      </ol>
+      ならば，\(D=d\)．
+    </div>
+  </fieldset>
 
-    <details class="proof">
-      <summary>証明</summary>
-      <div>
-        \(U\) 上のすべての \(k\) 形式は \(f\,dx^{i_1}\land\cdots\land dx^{i_k}\)
-          のような項の和であるから，線形性より，この形の \(k\) 形式上で
-          \(D=d\) を示せば十分である．(iii) より，\(C^\infty\) 級関数上で
-          \(Df=df\)．したがって (ii) より \(Ddx^i=DDx^i=0\)．\(D\) の反導分の
-          性質を用いれば，\(k\) に関する簡単な数学的帰納法より，すべての \(k\) と，
-          長さ \(k\) のすべての多重指数 \(I\) に対して
-          \begin{align*}
-          D(dx^I)=D(dx^{i_1}\land\cdots\land dx^{i_k})=0．
-          \end{align*}
-          最後に，すべての \(k\) 形式 \(f\,dx^I\) に対して
-          \begin{align*}
-          D(f\,dx^I)=&(Df)\land dx^I+fD(dx^I)\\
-          =&(df)\land dx^I\\
-          =&d(f\,dx^I)
-          \end{align*}
-          これゆえ，\(\Omega^\ast(U)\) 上で \(D=d\)．$$\tag*{$\blacksquare$}$$
-      </div>
-    </details>
+  <details class="proof">
+    <summary>証明</summary>
+    <div>
+      \(U\) 上のすべての \(k\) 形式は \(f\,dx^{i_1}\land\cdots\land dx^{i_k}\)
+      のような項の和であるから，線形性より，この形の \(k\) 形式上で
+      \(D=d\) を示せば十分である．(iii) より，\(C^\infty\) 級関数上で
+      \(Df=df\)．したがって (ii) より \(Ddx^i=DDx^i=0\)．\(D\) の反導分の
+      性質を用いれば，\(k\) に関する簡単な数学的帰納法より，すべての \(k\) と，
+      長さ \(k\) のすべての多重指数 \(I\) に対して
+      \begin{align*}
+      D(dx^I)=D(dx^{i_1}\land\cdots\land dx^{i_k})=0．
+      \end{align*}
+      最後に，すべての \(k\) 形式 \(f\,dx^I\) に対して
+      \begin{align*}
+      D(f\,dx^I)=&(Df)\land dx^I+fD(dx^I)\\
+      =&(df)\land dx^I\\
+      =&d(f\,dx^I)
+      \end{align*}
+      これゆえ，\(\Omega^\ast(U)\) 上で \(D=d\)．$$\tag*{$\blacksquare$}$$
+    </div>
+  </details>
 
 </body>
 
