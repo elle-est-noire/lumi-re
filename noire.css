@@ -3,10 +3,30 @@ body {
   background-color: #002b36;
   color: #f0f6fc;
   font-size: 15px;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   line-height: 1.75;
   font-kerning: auto;
   padding: 50px 50px 50px 50px;
+}
+
+@font-face {
+  font-family: "CloisterBlack";
+  src: url(CloisterBlack.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "MadokaRunes";
+  src: url(MadokaRunes-2.0.ttf) format("truetype");
+}
+
+.lumieres {
+  font-family: "MadokaRunes", serif;
+  font-size: 100px;
+  font-weight: normal;
+  letter-spacing: 4px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 1px 1px 2px black, 0 0 1em white, 0 0 0.2em white;
 }
 
 .wrapper {
@@ -25,7 +45,8 @@ body {
 }
 
 a:link {
-  color: #79c0ff;
+  /* color: #79c0ff; */
+  color: #ff8000;
 }
 
 a:visited {
@@ -33,11 +54,14 @@ a:visited {
 }
 
 a:hover {
-  color: #d2a8ff;
+  /* color: #d2a8ff; */
+  text-decoration: none;
 }
 
 a:active {
-  color: #ff0000;
+  /* color: #ff0000; */
+  text-decoration: none;
+  /* font-size: smaller; */
 }
 
 .def {
@@ -172,4 +196,22 @@ ol li:before {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+/* 背景色を含めて印刷されるようにしたい */
+
+body {
+  -webkit-print-color-adjust: exact;
+}
+
+/* スクロールバーに丸みをつける */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #777777;
+  border-radius: 5px;
 }

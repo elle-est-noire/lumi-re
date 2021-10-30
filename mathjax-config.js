@@ -1,8 +1,12 @@
 window.MathJax = {
-  loader: {load: ['[tex]/physics']},
+  loader: {load: ['[tex]/physics', '[tex]/mathtools', '[tex]/color']},
   tex: {
     inlineMath: [['$', '$'], ['\\(', '\\)']],
-    packages: { '[+]': ['physics'] },
+    packages: { '[+]': ['physics', 'mathtools', 'color'] },
+    color: {
+      padding: '5px',
+      borderWidth: '2px',
+    },
     macros: {
       parn: ["\\biggl(#1\\biggr)", 1],
       sqbr: ["\\biggl[#1\\biggr]", 1],
@@ -23,12 +27,25 @@ window.MathJax = {
       ul: ['\\underline{#1}', 1],
       ub: ['\\underbrace{#1}', 1],
       ubt: ['\\underbrace{#1}_{\\text{#2}}', 2],
+      i: '{\\mathrm{i}}',
+      e: '{\\mathrm{e}}',
+    },
+    physics: {
+      italicdiff: true,
+      arrowdel: false,
     },
     tags: 'ams',
+    tagSide: 'right',
+    tagIndent: '0.8em', /* 数式と式番号の距離がtagIndentで指定した距離よりも短くならないように調整 */
     processRefs: true,
   },
   svg: {
     fontCache: 'global'
+  },
+  chtml: {
+    displayAlign: 'left',
+    displayIndent: '2em',
+    mtextInheritFont: true, /* 数式中の \text{} を本文と同じフォントにする */
   },
   startup: {
     ready: () => {
