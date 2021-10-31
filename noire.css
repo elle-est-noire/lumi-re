@@ -19,9 +19,21 @@ body {
   src: url(MadokaRunes-2.0.ttf) format("truetype");
 }
 
+.lumieres::before {
+  /* content: url(https://user-images.githubusercontent.com/51241098/139543644-5dcac2e4-f5c5-4e78-80ab-92aeee0cab5f.png); */
+  content: "";
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  background: url(https://user-images.githubusercontent.com/51241098/139543644-5dcac2e4-f5c5-4e78-80ab-92aeee0cab5f.png) no-repeat;
+  background-size: contain;
+  margin-right: 20px;
+  translate: transform(20px,-20px);
+}
+
 .lumieres {
-  font-family: "MadokaRunes", serif;
-  font-size: 100px;
+  font-family: "CloisterBlack", serif;
+  font-size: 64px;
   font-weight: normal;
   letter-spacing: 4px;
   color: #ffffff;
