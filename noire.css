@@ -19,25 +19,37 @@ body {
   src: url(MadokaRunes-2.0.ttf) format("truetype");
 }
 
-.lumieres::before {
-  /* content: url(https://user-images.githubusercontent.com/51241098/139543644-5dcac2e4-f5c5-4e78-80ab-92aeee0cab5f.png); */
-  content: "";
-  display: inline-block;
-  width: 45px;
-  height: 45px;
-  background: url(https://user-images.githubusercontent.com/51241098/139574777-4b78496b-1042-4db6-a08a-844184602969.png) no-repeat;
-  margin-right: 20px;
-  background-size: contain;
+.lumieres {
+  display: flex;
+  align-items: center;
 }
 
-.lumieres {
+.lumieres img {
+  display: block;
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  margin-left:auto;
+  animation: rotate 10s steps(300) 0s infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.lumieres span {
   font-family: "CloisterBlack", serif;
   font-size: 64px;
   font-weight: normal;
   letter-spacing: 4px;
   color: #ffffff;
-  text-align: center;
   text-shadow: 1px 1px 2px #002b36, 0 0 1em white, 0 0 0.2em white;
+  margin-left: 20px;
+  margin-right: auto;
 }
 
 .wrapper {
@@ -57,11 +69,11 @@ body {
 
 a:link {
   /* color: #79c0ff; */
-  color: #ff8000;
+  color: #ff88dd;
 }
 
 a:visited {
-  color: #cf7000;
+  color: #dd88ff;
 }
 
 a:hover {
@@ -70,7 +82,7 @@ a:hover {
 }
 
 a:active {
-  color: #007fff;
+  color: #ffaaff;
   text-decoration: none;
   /* font-size: smaller; */
 }
