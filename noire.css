@@ -1,13 +1,3 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  background-color: #002b36;
-  color: #f0f6fc;
-  font-size: 15px;
-  letter-spacing: 1px;
-  line-height: 1.75;
-  font-kerning: auto;
-  padding: 50px 50px 50px 50px;
-}
 
 @font-face {
   font-family: "CloisterBlack";
@@ -17,6 +7,22 @@ body {
 @font-face {
   font-family: "MadokaRunes";
   src: url(MadokaRunes-2.0.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "AppliMincho";
+  src: url(AppliMincho.otf) format("opentype");
+}
+
+body {
+  font-family: "AppliMincho", Meiryo;
+  background-color: #002b36;
+  color: #f0f6fc;
+  font-size: 15px;
+  letter-spacing: 1px;
+  line-height: 1.75;
+  font-kerning: auto;
+  padding: 50px 50px 50px 50px;
 }
 
 .lumieres {
