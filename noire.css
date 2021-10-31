@@ -25,7 +25,7 @@ body {
   display: inline-block;
   width: 45px;
   height: 45px;
-  background: url(https://user-images.githubusercontent.com/51241098/139566307-ebb6b256-9bc8-46a8-b401-850ff22590db.png) no-repeat;
+  background: url(https://user-images.githubusercontent.com/51241098/139574777-4b78496b-1042-4db6-a08a-844184602969.png) no-repeat;
   margin-right: 20px;
   background-size: contain;
 }
@@ -37,7 +37,7 @@ body {
   letter-spacing: 4px;
   color: #ffffff;
   text-align: center;
-  text-shadow: 1px 1px 2px black, 0 0 1em white, 0 0 0.2em white;
+  text-shadow: 1px 1px 2px #002b36, 0 0 1em white, 0 0 0.2em white;
 }
 
 .wrapper {
@@ -61,7 +61,7 @@ a:link {
 }
 
 a:visited {
-  color: #ff8000;
+  color: #cf7000;
 }
 
 a:hover {
@@ -70,7 +70,7 @@ a:hover {
 }
 
 a:active {
-  /* color: #ff0000; */
+  color: #007fff;
   text-decoration: none;
   /* font-size: smaller; */
 }
