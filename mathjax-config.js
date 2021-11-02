@@ -1,8 +1,8 @@
 window.MathJax = {
-  loader: {load: ['[tex]/physics', '[tex]/mathtools', '[tex]/color']},
+  loader: {load: ['[tex]/physics', '[tex]/mathtools', '[tex]/color', '[tex]/upgreek']},
   tex: {
     inlineMath: [['$', '$'], ['\\(', '\\)']],
-    packages: { '[+]': ['physics', 'mathtools', 'color'] },
+    packages: { '[+]': ['physics', 'mathtools', 'color', 'upgreek'] },
     color: {
       padding: '5px',
       borderWidth: '2px',

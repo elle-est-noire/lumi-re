@@ -13,7 +13,16 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@L48610">
   <link rel="shortcut icon" href="https://user-images.githubusercontent.com/51241098/139574778-08c0d89e-b88e-4faa-baf5-4ee2af007b81.png" type="image/png">
-  
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'cah6dme',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
 </head>
 
 <body>
@@ -56,7 +65,7 @@
       \end{align}
       より
       \begin{align}
-      c\ket{n}=\e^{i\alpha}\sqrt{n}\ket{n-1}
+      c\ket{n}=\e^{\i\alpha}\sqrt{n}\ket{n-1}
       \end{align}
       と、$c$ の $\ket{n}$ に対する作用が $\alpha$ の位相の不定性を残して定まる。簡単さのため、あるいは慣習より $\alpha=0$ とすることに決める。すると
       \begin{align}
