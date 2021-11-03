@@ -54,6 +54,17 @@ body {
   animation: rotate 32s steps(9600) 0s infinite;
 }
 
+.lumieres div {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-size: 100px;
+  background-image: url(https://user-images.githubusercontent.com/51241098/140038682-258b56e1-1945-429b-8d12-1aa4bc0473fb.png);
+  border-radius: 50%;
+  margin-left: auto;
+  animation: rotate 32s steps(9600) 0s infinite;
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
