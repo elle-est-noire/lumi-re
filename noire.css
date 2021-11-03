@@ -20,13 +20,12 @@
 
 body {
   font-family: "AppliMincho", serif;
-  /* font-family: source-han-serif-japanese, serif; */
   font-weight: 400;
   font-style: normal;
   background-color: #002b36;
   color: #f0f6fc;
   font-size: 15px;
-  letter-spacing: 1px;
+  letter-spacing: normal;
   line-height: 1.75;
   padding: 50px 50px 50px 50px;
   font-kerning: normal;
@@ -45,6 +44,7 @@ body {
   align-items: center;
 }
 
+/* ロゴを回転 */
 .lumieres img {
   display: block;
   width: 100px;
@@ -338,4 +338,99 @@ code {
   border-radius: 3px;
   font-family: SFMonoRegular, monospace;
   font-size: 12px;
+  
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table td, table th {
+  padding: 8px 16px;
+  border: solid 1px gray;
+}
+
+table tr.row-odd {
+  background-color: #204b56;
+}
+
+table tr.row-even {
+  background-color: inherit;
+}
+
+
+/*https://1-notes.com/css-circular-text-design/*/
+.container{
+}
+
+.circle-text {
+  position:relative;
+  width: 120px; /* 直径 */
+  height: 120px; /* 直径 */
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+  /* transform: rotate(-80deg); 円の回転 */
+  animation: rotate 32s steps(9600) 0s infinite;
+}
+
+.circle-text span {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 15px); /* 中心点、、文字サイズ分ずらす */
+  display: inline-block;
+  /* width: 30px; 文字サイズより小さくしない */
+  height: 60px; /* 半径 */
+  transform-origin: center bottom; /* 回転の基準点 */
+/*  border: solid 1px; */
+  font-family: "MadokaRunes";
+}
+
+
+.circle-text span:nth-child(1) {
+  transform: rotate(-10deg);
+  font-size: 40px;
+  width: 40px;
+}
+
+.circle-text span:nth-child(2) {
+  transform: rotate(45deg);
+  font-size: 25px;
+  width: 25px;
+}
+
+.circle-text span:nth-child(3) {
+  transform: rotate(90deg);
+  font-size: 35px;
+  width: 35;
+}
+
+.circle-text span:nth-child(4) {
+  transform: rotate(135deg);
+  font-size: 25px;
+  width: 25px;
+}
+
+.circle-text span:nth-child(5) {
+  transform: rotate(170deg);
+  font-size: 25px;
+  width: 25px;
+}
+
+.circle-text span:nth-child(6) {
+  transform: rotate(225deg);
+  font-size: 35px;
+  width: 35px;
+}
+
+.circle-text span:nth-child(7) {
+  transform: rotate(270deg);
+  font-size: 25px;
+  width: 25px;
+}
+
+.circle-text span:nth-child(8) {
+  transform: rotate(305deg);
+  font-size: 35px;
+  width: 35px;
 }
