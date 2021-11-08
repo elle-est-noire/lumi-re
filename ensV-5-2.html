@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>物理学演習V[2]</title>
+  <script src="mathjax-config.js" async></script>
+  <link rel="stylesheet" href="noire.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="lumières">
+  <meta property="og:description" content="発表資料">
+  <meta property="og:url" content="https://elle-et-noire.github.io/lumieres/">
+  <meta property="og:image" content="https://user-images.githubusercontent.com/51241098/139921229-151ff350-13df-40c0-8709-b575bb6fdc6a.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@L48610">
+  <link rel="shortcut icon" href="https://user-images.githubusercontent.com/51241098/139574778-08c0d89e-b88e-4faa-baf5-4ee2af007b81.png" type="image/png">
+</head>
+
+<body style="padding: 50px 200px 50px 200px">
+  \[
+    \def\Gammaf{\varGamma}
+    \def\i{i}
+    \def\e{e}
+  \]
+  <h2>[2] 合流型超幾何関数</h2>
+  合流型超幾何微分方程式
+  \begin{align}
+    z\dv[2]{F}{z}+(b-z)\dv{F}{z}-aF=0\quad (a,b,z\in\mathbb{C},\ b\neq 0,-1,-2,\ldots)\label{eq:csde}
+  \end{align}
+  は、$F=F(a,b,z)$ および $F=z^{1-b}F(a-b+1,2-b,z)$ を解として独立に持つ。ここで $F(a,b,z)$ は合流型超幾何関数（confluent hypergeometric function）
+  \begin{align}
+    F(a,b,z)\equiv \sum_{n=0}^\infty \dfrac{1}{\Gammaf(1+n)}\dfrac{\Gammaf(a+n)\Gammaf(b)}{\Gammaf(a)\Gammaf(b+n)}z^n,\quad \Gammaf(n+1)=n!\label{eq:f-series}
+  \end{align}
+  である。この表示は $z\to\infty$ での振る舞いを考察するには適していない。以下の問で $z\to\infty$ での漸近展開について考察する。
+  <fieldset class="thm">
+    <legend>小問1</legend>
+    <div>
+      \begin{align}
+        \tilde{F}(a,b,z)&=\int_C\dd{t} e^{zt}\chi(a,b,t)\quad(\text{積分経路 $C$ は積分が収束するように選ぶ})\label{eq:ftilde}
+      \end{align}
+      を\eqref{eq:csde}に代入することで $\chi(a,b,t)$ が満たすべき微分方程式を求め、それを解くことにより
+      \begin{align}
+        \chi(a,b,t)&=At^{a-1}(t-1)^{b-a-1}\quad(A\text{ は任意定数})\label{eq:solverchi}
+      \end{align}
+      であることを示せ。\eqref{eq:ftilde}の積分の表面項が消えるように経路 $C$ が選ばれていることを仮定して良いものとする。
+    </div>
+  </fieldset>
+  積分の表面項が消えるということは
+  \begin{align}
+    \eval{e^{zt}\chi(a,b,t)}_{t\in\partial C}=0
+  \end{align}
+  が成り立つということである（$\partial C$ は経路 $C$ の端点）。
+  \begin{align}
+    \dv{\tilde{F}}{z}=\int_C\dd{t}te^{zt}\chi(a,b,t)
+  \end{align}
+  というように $\tilde{F}$ を $z$ で微分するごとに $t$ が前に出てくる。このことを用いて $F=\tilde{F}$ を\eqref{eq:csde}に代入し、部分積分で $e^{zt}$ を積分すると
+  \begin{align}
+    (\text{第$\,1\,$項})&=z\dv[2]{\tilde{F}}{z}=\int_C\dd{t}zt^2e^{zt}\chi(a,b,t)\\
+    &=\underbrace{\eval{t^2e^{zt}\chi(a,b,t)}_{\partial C}}_{=0}-\int_C\dd{t}(2t\chi+t^2\dot{\chi})e^{zt}\\
+    (\text{第$\,2\,$項})&=(b-z)\dv{\tilde{F}}{z}=\int_C\dd{t}(b-z)te^{zt}\chi(a,b,t)\\
+    &=\int_C\dd{t}(bt\chi+\chi+t\dot{\chi})e^{zt}\\
+    (\text{第$\,3\,$項})&=-a\tilde{F}=\int_C\dd{t}(-a\chi)e^{zt}\\
+    \therefore &\int_C\dd{t}e^{-zt}[(b-2)t\chi+(1-a)\chi+(t-t^2)\dot{\chi}]=0\label{eq:inteq}
+  \end{align}
+  となる。$z$ に依らず\eqref{eq:inteq}が成り立ってほしいので
+  \begin{align}
+  (b-2)t\chi+(1-a)\chi+(t-t^2)\dot{\chi}=0\label{eq:chieq}
+  \end{align}
+  が $\chi(a,b,t)$ の満たすべき微分方程式として得られる。ここで、\eqref{eq:chieq} の左辺に
+  \begin{align}
+    \chi(a,b,t)&=t^{a-1}(t-1)^{b-a-1}
+  \end{align}
+  を代入して計算してみると、
+  \begin{align}
+    &(b-2)t^a(t-1)^{b-a-1}+(1-a)t^{a-1}(t-1)^{b-a-1}\\
+    &\quad+\underbrace{(t-t^2)\qty\bigg[(a-1)t^{a-2}(t-1)^{b-a-1}+(b-a-1)t^{a-1}(t-1)^{b-a-2}]}_{
+      \ds=-(a-1)t^{a-1}(t-1)^{b-a}-(b-a-1)t^{a}(t-1)^{b-a-1}}\\
+    &=(a-1)t^a(t-1)^{b-a-1}+(1-a)(1+t-1)t^{a-1}(t-1)^{b-a-1}\\
+    &=0
+  \end{align}
+  と、解になっていることが分かる。微分方程式の解の一意性より\eqref{eq:solverchi}が解であることが分かる。まとめると
+  \begin{align}
+  \tilde{F}(a,b,z)&=A\int_C\dd{t} e^{zt}t^{a-1}(t-1)^{b-a-1}\quad(a,b,z\in\mathbb{C},\ b\neq 0,-1,-2,\ldots)\\
+  &\text{ただし積分経路 $C$ は積分が収束するように選び、}\eval{e^{zt}t^{a-1}(t-1)^{b-a-1}}_{t\in\partial C}=0\label{eq:ftilde-int}
+  \end{align}
+  となる。
+
+  <fieldset class="thm">
+    <legend>小問2</legend>
+    <div>
+      上で得られた積分表示で $s=zt$ と変数変換し、$F(a,b,z)$ と $\tilde{F}(a,b,z)$ の $z=0$ 周りでの振る舞いを比較することで、$F(a,b,z)$ の積分表示
+      \begin{align}
+        F(a,b,z)=\dfrac{\Gammaf(b)}{2\pi\i}\int_C\dd{s}\e^ss^{a-b}(s-z)^{-a}\label{eq:f-int}
+      \end{align}
+      を導出せよ。ここで、積分の表面項を落とし収束性を保証するため、積分経路を、$\Re(s)\to-\infty$ から始まり特異点となりうる $s=0,s=z$ を迂回した上で $\Re(s)\to-\infty$ へと戻るようにとった。また、ガンマ関数に対する<strong>Hankelの積分表示</strong>より従う次の積分表示を用いてよい：
+      \begin{align}
+        \dfrac{1}{\Gammaf(z)}=\dfrac{1}{2\pi\i}\int_C\dd{t}\e^tt^{-z}.\label{eq:hankel}
+      \end{align}
+      <img src="ensV-5-2.png" width="500px" sytle="text-align:center" >
+    </div>
+  </fieldset>
+  \begin{align}
+    \dv[n]{z}(s-z)^{-a}&=(-1)^n(-a)(-a-1)\cdots(-a-n+1)(s-z)^{-a-n}\\
+    &=\underbrace{a(a+1)\cdots(a+n-1)}_{\ds=\Gammaf(a+n)/\Gammaf(a)}(s-z)^{-a-n}\\
+  \end{align}
+  より $z=0$ まわりで
+  \begin{align}
+    (s-z)^{-a}&=\sum_{n=0}^\infty \dfrac{1}{n!}\dfrac{\Gammaf(a+n)}{\Gammaf(a)}s^{-a-n}z^n
+  \end{align}
+  と展開できる。これを利用して\eqref{eq:f-int}の右辺を計算すると
+  \begin{align}
+  \dfrac{\Gammaf(b)}{2\pi\i}\int_C\dd{s}e^ss^{a-b}(s-z)^{-a}&=\dfrac{\Gammaf(b)}{2\pi\i}\sum_{n=0}^\infty \dfrac{1}{n!}\dfrac{\Gammaf(a+n)}{\Gamma(a)}z^n
+  \underbrace{\int_C\dd{s}\e^ss^{-b-n}}_{\ds=\dfrac{2\pi\i}{\Gammaf(b+n)}\eqref{eq:hankel}}\\
+  &=\sum_{n=0}^\infty \dfrac{1}{\Gammaf(n+1)}\dfrac{\Gammaf(a+n)\Gammaf(b)}{\Gammaf(a)\Gammaf(b+n)}z^n
+  \end{align}
+  となり、$F(a,b,z)$ の級数展開\eqref{eq:f-series}に一致するので\eqref{eq:f-int}は正しいことが分かる。
+
+  <fieldset class="thm">
+    <legend>小問3</legend>
+    <div>
+      $z$ が大きいところでの $F(a,b,z)$ の漸近展開を得るために、積分経路 $C$ を、点 $s=0,z$ で折り返す図$\,1\,$実線のような積分経路 $C_1,C_2$ へと変形する。経路 $C_2$ に関する積分変数を適当に取り直しこれを積分経路 $C_1$ へと変換させることで次の表式を導け：
+      \begin{align}
+        F(a,b,z)&=\dfrac{\Gammaf(b)}{\Gammaf(b-a)}(-z)^aG(a,a-b+1,-z)+\dfrac{\Gammaf(b)}{\Gammaf(a)}\e^zz^{a-b}G(b-a,1-a,z)\label{eq:f-another}\\
+        \text{ただし } G(a,b,z)&=\dfrac{\Gammaf(1-b)}{2\pi\i}\int_{C_1}\dd{s}\qty\bigg(1+\dfrac{s}{z})^{-a}s^{b-1}\e^s.\label{eq:g}
+      \end{align}
+      また $G(a,b,z)$ が $z\to\infty$ で
+      \begin{align}
+        G(a,b,z)=1+\dfrac{ab}{z}+\dfrac{a(a+1)b(b+1)}{2!z^2}
+      \end{align}
+      なる漸近形を持つことを示せ。
+    </div>
+  </fieldset>
+  \eqref{eq:f-another}の右辺に\eqref{eq:g}を代入すると
+  \begin{align}
+    (\text{右辺第$\,1\,$項})&=\dfrac{\Gammaf(b)}{\Gammaf(b-a)}(-z)^a\dfrac{\Gammaf(b-a)}{2\pi\i}\int_{C_1}\dd{s}\qty\bigg(1-\dfrac{s}{z})^{-a}s^{a-b}\e^s\\
+    &=\dfrac{\Gammaf(b)}{2\pi\i}\int_{C_1}\dd{s}(s-z)^{-a}s^{a-b}\e^s\\
+    (\text{右辺第$\,2\,$項})&=\dfrac{\Gammaf(b)}{\Gammaf(a)}\e^zz^{a-b}\dfrac{\Gammaf(a)}{2\pi\i}\int_{C_1}\dd{s}\qty\bigg(1+\dfrac{s}{z})^{a-b}s^{-a}\e^s\\
+    &=\dfrac{\Gammaf(b)}{2\pi\i}\int_{C_1}\dd{s}(s+z)^{a-b}s^{-a}\e^{s+z}\\
+    &\stackrel{s\to s-z}{=}\dfrac{\Gammaf(b)}{2\pi\i}\int_{C_2}\dd{s}s^{a-b}(s-z)^{-a}\e^{s}\\
+  \end{align}
+  とそれぞれ計算できる。$C_1,C_2$ の外側と $C$ の内側の間には特異点になりうる点は存在しないので $\ds\int_{C_1}+\int_{C_2}=\int_C$ となり、\eqref{eq:f-int}と見比べると\eqref{eq:f-another}が正しいことが分かる。また、
+  \begin{align}
+    \dv[n]{(1/z)}(1+\dfrac{s}{z})^{-a}&=(-a)(-a-1)\cdots(-a-n+1)s^n\qty\bigg(1+\dfrac{s}{z})^{-a-n}\\
+    &=(-1)^ns^n\dfrac{\Gammaf(a+n)}{\Gammaf(a)}\qty\bigg(1+\dfrac{s}{z})^{-a-n}
+  \end{align}
+  より $z=\infty$ まわりで
+  \begin{align}
+    \qty\bigg(1+\dfrac{s}{z})^{-a}&=\sum_{n=0}^\infty \dfrac{(-1)^n}{n!}s^n\dfrac{\Gammaf(a+n)}{\Gammaf(n)}\dfrac{1}{z^n}
+  \end{align}
+  と展開できる。これを利用して\eqref{eq:g}を展開すると
+  \begin{align}
+    G(a,b,z)&=\dfrac{\Gammaf(1-b)}{2\pi\i}\sum_{n=0}^\infty \dfrac{(-1)^n}{n!}\dfrac{\Gammaf(a+n)}{\Gammaf(a)}\dfrac{1}{z^n}
+    \underbrace{\int_{C_1}\dd{s}s^{n+b-1}\e^s}_{\ds=\dfrac{2\pi\i}{\Gammaf(1-b-n)}}\\
+    &=\sum_{n=0}^\infty \dfrac{(-1)^n}{n!}\dfrac{\Gammaf(a+n)}{\Gammaf(a)}\underbrace{\dfrac{\Gammaf(1-b)}{\Gammaf(1-b-n)}}_{(-b)(-b-1)\cdots(1-b-n)}\dfrac{1}{z^n}\\
+    &=\sum_{n=0}^\infty \dfrac{1}{n!}\dfrac{\Gammaf(a+n)}{\Gammaf(a)}b(b+1)\cdots(b+n-1)\dfrac{1}{z^n}\\
+    &=\sum_{n=0}^\infty \dfrac{1}{n!}\dfrac{\Gammaf(a+n)}{\Gammaf(a)}\dfrac{\Gammaf(b+n)}{\Gammaf(b)}\dfrac{1}{z^n}\\
+    &=1+\dfrac{ab}{z}+\dfrac{a(a+1)b(b+1)}{2!z^2}+\cdots
+  \end{align}
+  となる。
+  <h2>参考文献</h2>
+  <ul>
+    <li>犬井 鉄郎『特殊函数』（岩波書店、1962）</li>
+  </ul>
+</body>
+
+</html>
