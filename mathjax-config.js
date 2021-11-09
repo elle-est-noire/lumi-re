@@ -29,6 +29,7 @@ window.MathJax = {
       ubt: ['\\underbrace{#1}_{\\text{#2}}', 2],
       i: '{\\mathrm{i}}',
       e: '{\\mathrm{e}}',
+      ve: '{\\varepsilon}',
     },
     physics: {
       italicdiff: true,

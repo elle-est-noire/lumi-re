@@ -45,18 +45,18 @@
       であることを示せ。\eqref{eq:ftilde}の積分の表面項が消えるように経路 $C$ が選ばれていることを仮定して良いものとする。
     </div>
   </fieldset>
-  積分の表面項が消えるということは
+  積分の表面項が消えるという条件を
   \begin{align}
-    \eval{e^{zt}\chi(a,b,t)}_{t\in\partial C}=0
+    \eval{e^{zt}\chi(a,b,t)}_{t\in\partial C}=0\label{eq:ccond}
   \end{align}
-  が成り立つということである（$\partial C$ は経路 $C$ の端点）。
+  が成り立つということに読み替える（$\partial C$ は経路 $C$ の端点）。こうしても以下の設問では問題はない。
   \begin{align}
     \dv{\tilde{F}}{z}=\int_C\dd{t}te^{zt}\chi(a,b,t)
   \end{align}
   というように $\tilde{F}$ を $z$ で微分するごとに $t$ が前に出てくる。このことを用いて $F=\tilde{F}$ を\eqref{eq:csde}に代入し、部分積分で $e^{zt}$ を積分すると
   \begin{align}
     (\text{第$\,1\,$項})&=z\dv[2]{\tilde{F}}{z}=\int_C\dd{t}zt^2e^{zt}\chi(a,b,t)\\
-    &=\underbrace{\eval{t^2e^{zt}\chi(a,b,t)}_{\partial C}}_{=0}-\int_C\dd{t}(2t\chi+t^2\dot{\chi})e^{zt}\\
+    &=\eval{t^2\underbrace{e^{zt}\chi(a,b,t)}_{=0}}_{\partial C}-\int_C\dd{t}(2t\chi+t^2\dot{\chi})e^{zt}\\
     (\text{第$\,2\,$項})&=(b-z)\dv{\tilde{F}}{z}=\int_C\dd{t}(b-z)te^{zt}\chi(a,b,t)\\
     &=\int_C\dd{t}(bt\chi+\chi+t\dot{\chi})e^{zt}\\
     (\text{第$\,3\,$項})&=-a\tilde{F}=\int_C\dd{t}(-a\chi)e^{zt}\\
@@ -78,12 +78,16 @@
     &=(a-1)t^a(t-1)^{b-a-1}+(1-a)(1+t-1)t^{a-1}(t-1)^{b-a-1}\\
     &=0
   \end{align}
-  と、解になっていることが分かる。微分方程式の解の一意性より\eqref{eq:solverchi}が解であることが分かる。まとめると
+  と、解になっていることが分かる。微分方程式の解の一意性より\eqref{eq:solverchi}が解である。まとめると
   \begin{align}
   \tilde{F}(a,b,z)&=A\int_C\dd{t} e^{zt}t^{a-1}(t-1)^{b-a-1}\quad(a,b,z\in\mathbb{C},\ b\neq 0,-1,-2,\ldots)\\
-  &\text{ただし積分経路 $C$ は積分が収束するように選び、}\eval{e^{zt}t^{a-1}(t-1)^{b-a-1}}_{t\in\partial C}=0\label{eq:ftilde-int}
+  &\text{ただし積分経路 $C$ は積分が収束するように選ぶ}\notag
   \end{align}
-  となる。
+  となる。また、\eqref{eq:ccond}は
+  \begin{align}
+  \partial C\subset\qty{0,1}\cup \qty{-\infty+\i y\mid y\in\mathbb{R}}
+  \end{align}
+  という条件に置き換わる（$C$ が閉曲線なら部分積分の表面項は自動的に消えるのでこの条件は必要ない？）。
 
   <fieldset class="thm">
     <legend>小問2</legend>
@@ -157,9 +161,79 @@
     &=1+\dfrac{ab}{z}+\dfrac{a(a+1)b(b+1)}{2!z^2}+\cdots
   \end{align}
   となる。
+  <h2>補足 Hankel の積分表示について</h2>
+  <img src="hankel.png" width="300px">
+  \begin{align}
+    \int_{-C}\dd{s}\e^{-s}(-s)^{z-1}&=\lim_{\substack{\ve\to0\\\delta\to 0}}\int^{\ve+\i\delta}_{\infty+\i\delta} \dd{s}\e^{-s}(-s)^{z-1}
+    +\oint_{\text{円形の部分}}\dd{s}\e^{-s}(-s)^{z-1}+\int^{\ve-\i\delta}_{\infty-\i\delta} \dd{s}\e^{-s\e^{2\pi\i}}(-s\e^{2\pi\i})^{z-1}
+  \end{align}
+  円形の部分は $s=\ve\e^{i\varphi}$ とおいて計算すると
+  \begin{align}
+    \text{(円形の部分)}=\int_0^{2\pi}\i\ve\e^{\i\varphi}\dd{\varphi} \e^{-\ve\e^{i\varphi}}(-\ve\e^{\i\varphi})^{z-1}
+    =\i\ve^z\int_0^{2\pi}\dd{\varphi}\exp(-\ve\e^{\i\varphi}+\i z\varphi+\i\pi(z-1))
+  \end{align}
+  となり、その絶対値は上から $C\abs{\e^z}$ で抑えられるので $\Re(z)>0$ である限り $\ve\to 0$ で $0$ になる。そのとき
+  \begin{align}
+  \int_{-C}\dd{s}\e^{-s}(-s)^{z-1}&=\e^{-\pi\i(z-1)}\int_\infty^0 \dd{s}\e^{-s}s^{z-1}+\e^{\pi\i(z-1)}\int_0^\infty\dd{s} \e^{-s}s^{z-1}\\
+  &=2\i\sin(\pi(z-1))\Gammaf(z)=-2\i\sin(\pi z)\Gammaf(z)
+  \end{align}
+  となる。ここで Euler の reflection formula
+  \begin{align}
+    \dfrac{\pi}{\Gammaf(z)\Gammaf(1-z)}=\sin\pi z\label{eq:refform}
+  \end{align}
+  より
+  \begin{align}
+    \dfrac{-2\pi\i}{\Gammaf(1-z)}=\int_{-C}\dd{s}\e^{-s}(-s)^{z-1}.
+  \end{align}
+  $z\to1-z,s\to -s$ に書き換えると
+  \begin{align}
+    \dfrac{1}{\Gammaf(z)}=\dfrac{1}{2\pi\i}\int_{C}\dd{s}\e^{s}s^{z-1}
+  \end{align}
+  また、被積分関数の特異点となりうるのは $s=0,-\infty$ だけなので $C$ で積分しても $C_1$ で積分しても同じである。
+  <details class="proof">
+    <summary>reflection formula の導出1</summary>
+    <div>
+      \begin{align}
+        \Gammaf(z+n+1)&=(z+n)\Gammaf(z+n)=(z+n)(z+n-1)\cdots z\Gammaf(z)\\
+        \therefore \dfrac{1}{\Gammaf(z)}&=\dfrac{z(z+1)\cdots(z+n)}{\Gammaf(z+n+1)}\\
+        (z\to-z)\ \dfrac{1}{(-z)\Gammaf(-z)}&=\dfrac{(-z+1)\cdots(-z+n)}{\Gammaf(-z+1)}
+      \end{align}
+      よって $\varPhi(z)\equiv\dfrac{1}{\Gammaf(z)\Gammaf(1-z)}$ は $z\in\mathbb{Z}$ で零点を持つ。また、
+      \begin{align}
+        \Gammaf(z+2)\Gammaf(1-z-2)=(z+1)z\Gammaf(z)\Gammaf(1-z-2)=\Gammaf(z)(-z)(-z-1)\Gammaf(-z-1)=\Gammaf(z)\Gammaf(1-z)
+      \end{align}
+      より $\varPhi(z+2)=\varPhi(z)$ と $2$ を基本周期に持つ周期関数である。ところでそのようなものに $\sin\pi z$ もある。これらは（少なくとも有界な領域では）正則であり、一致の定理から定数倍の違いしかないはずである。$z=1$ における値を比べれば\eqref{eq:refform}が分かる。
+    </div>
+  </details>
+  <details class="proof">
+    <summary>reflection formula の導出2</summary>
+    <div>
+      Weierstraß の無限積表示より
+      \begin{align}
+        \dfrac{1}{\Gammaf(z)}&=z\e^{\gamma z}\prod_{n=1}^\infty \e^{-z/n}\qty(1+\dfrac{z}{n})
+      \end{align}
+      となることを利用して、有界な $z$ について
+      \begin{align}
+        \dfrac{1}{\Gammaf(z)\Gammaf(1-z)}&=\dfrac{1}{(-z)\Gammaf(z)\Gammaf(-z)}\\
+        &=z\e^{\gamma z}\e^{-\gamma z}\prod_{n=1}^\infty \qty[\qty(1+\dfrac{z}{n})\e^{-z/n}]\prod_{n=1}^\infty \qty[\qty(1-\dfrac{z}{n})\e^{z/n}]\label{eq:inf-prod}\\
+        &=z\prod_{n=1}^\infty \qty(1-\dfrac{z^2}{n^2})=\dfrac{\sin\pi z}{\pi}.\quad(\sin \text{ の無限乗積}\qquad\qquad\qquad)
+      \end{align}
+      \eqref{eq:inf-prod}　　の各無限積の収束性については、$\ln$ を取って級数に変えた後、<br>$\abs{z} < \dfrac{N}{2}$ に対して $N < n$ なる項について
+      \begin{align}
+        \abs{\ln(1\pm\dfrac{z}{n})-\dfrac{z}{n}}&=\abs{-\dfrac{1}{2}\dfrac{z^2}{n^2}+\dfrac{1}{3}\dfrac{z^3}{n^3}-\cdots}\\
+        &\le \abs{\dfrac{z}{n}}^2\qty[1+\abs{z}{n}+\abs{z}{n}^2+\cdots]\\
+        &\le \dfrac{1}{4}\abs{\dfrac{N}{n}}^2\qty[1+\dfrac{1}{2}+\dfrac{1}{2^2}+\cdots]=\dfrac{1}{2}\abs{\dfrac{N}{n}}^2
+      \end{align}
+      と抑えられる（$z\to -z$ でも同じ）。$2\,$乗の逆数和は収束するので $\ln$ を取った後の級数が絶対収束し、$\ln$ を取る前の無限積も収束する。
+    </div>
+  </details>
   <h2>参考文献</h2>
   <ul>
     <li>犬井 鉄郎『特殊函数』（岩波書店、1962）</li>
+    <li><a href="http://math.univ-lyon1.fr/~iohara/Doc/Jap/Bessel.pdf">古典的Bessel函数入門</a></li>
+    <li><a href="https://haul3740.hatenablog.com/entry/2020/12/25/011152">合流型超幾何関数 その4（積分表示）</a></li>
+    <li>物理数学I・II講義資料</li>
+    <li>物理学演習III 持ち帰りNo.6 発表資料</li>
   </ul>
 </body>
 
