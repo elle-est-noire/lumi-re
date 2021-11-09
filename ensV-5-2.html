@@ -129,7 +129,7 @@
       \end{align}
       また $G(a,b,z)$ が $z\to\infty$ で
       \begin{align}
-        G(a,b,z)=1+\dfrac{ab}{z}+\dfrac{a(a+1)b(b+1)}{2!z^2}
+        G(a,b,z)=1+\dfrac{ab}{z}+\dfrac{a(a+1)b(b+1)}{2!z^2}+\cdots
       \end{align}
       なる漸近形を持つことを示せ。
     </div>
@@ -220,8 +220,8 @@
       \end{align}
       \eqref{eq:inf-prod}　　の各無限積の収束性については、$\ln$ を取って級数に変えた後、<br>$\abs{z} < \dfrac{N}{2}$ に対して $N < n$ なる項について
       \begin{align}
-        \abs{\ln(1\pm\dfrac{z}{n})-\dfrac{z}{n}}&=\abs{-\dfrac{1}{2}\dfrac{z^2}{n^2}+\dfrac{1}{3}\dfrac{z^3}{n^3}-\cdots}\\
-        &\le \abs{\dfrac{z}{n}}^2\qty[1+\abs{z}{n}+\abs{z}{n}^2+\cdots]\\
+        \abs{\ln(1+\dfrac{z}{n})-\dfrac{z}{n}}&=\abs{-\dfrac{1}{2}\dfrac{z^2}{n^2}+\dfrac{1}{3}\dfrac{z^3}{n^3}-\cdots}\\
+        &\le \abs{\dfrac{z}{n}}^2\qty[1+\abs{\dfrac{z}{n}}+\abs{\dfrac{z}{n}}^2+\cdots]\\
         &\le \dfrac{1}{4}\abs{\dfrac{N}{n}}^2\qty[1+\dfrac{1}{2}+\dfrac{1}{2^2}+\cdots]=\dfrac{1}{2}\abs{\dfrac{N}{n}}^2
       \end{align}
       と抑えられる（$z\to -z$ でも同じ）。$2\,$乗の逆数和は収束するので $\ln$ を取った後の級数が絶対収束し、$\ln$ を取る前の無限積も収束する。
