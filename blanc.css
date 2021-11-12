@@ -1,10 +1,88 @@
+@font-face {
+  font-family: "CloisterBlack";
+  src: url(CloisterBlack.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "MadokaRunes";
+  src: url(MadokaRunes-2.0.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "AppliMincho";
+  src: url(AppliMincho.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SFMonoRegular";
+  src: url(FontsFree-Net-SFMono-Regular.ttf) format("truetype");
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-family: "AppliMincho", serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: white;
+  color: black;
   font-size: 15px;
-  letter-spacing: 1.5px;
+  letter-spacing: normal;
   line-height: 1.75;
-  font-kerning: auto;
-  padding: 100px;
+  padding: 50px 50px 50px 50px;
+  font-kerning: normal;
+  font-feature-settings: "palt"; /* 字詰め（目下意味なし） */
+}
+
+/* カーニングを備えたフォントに切り替える */
+.kern {
+  font-family: source-han-serif-japanese, serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lumieres {
+  display: flex;
+  align-items: center;
+}
+
+/* ロゴを回転 */
+.lumieres img {
+  display: block;
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  margin-left: auto;
+  animation: rotate 32s steps(9600) 0s infinite;
+}
+
+.lumieres div {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-size: 100px;
+  background-image: url(https://user-images.githubusercontent.com/51241098/140038682-258b56e1-1945-429b-8d12-1aa4bc0473fb.png);
+  border-radius: 50%;
+  margin-left: auto;
+  animation: rotate 32s steps(9600) 0s infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.lumieres span {
+  font-family: "CloisterBlack", serif;
+  font-size: 64px;
+  font-weight: normal;
+  letter-spacing: 4px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #002b36, 0 0 1em white, 0 0 0.2em white;
+  margin-left: 20px;
+  margin-right: auto;
 }
 
 .wrapper {
@@ -22,20 +100,66 @@ body {
   }
 }
 
+/* 新しいタブのアイコンを css だけで */
+
+.blank-icon {
+  box-sizing: border-box;
+  position: relative;
+  width: 20px;
+  height: 16px;
+  transform: scale(3);
+}
+
+.blank-icon:before, .blank-icon:after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  border-color: black;
+}
+
+.blank-icon:before {
+  top: 0;
+  left: 0;
+  border-width: 3px;
+}
+
+.blank-icon:after {
+  top: 6px;
+  left: 6px;
+  border-width: 0 3px 3px 0;
+}
+
 a:link {
-  color: #79c0ff;
+  /* color: #79c0ff; */
+  color: #ff88dd;
 }
 
 a:visited {
-  color: #ff8000;
+  color: #dd88ff;
 }
 
 a:hover {
-  color: #d2a8ff;
+  /* color: #d2a8ff; */
+  text-decoration: none;
 }
 
 a:active {
-  color: #ff0000;
+  color: #ffaaff;
+  text-decoration: none;
+  /* font-size: smaller; */
+}
+
+a[target="_blank"]:after {
+  background: url(https://user-images.githubusercontent.com/51241098/139593661-040a49a0-3849-4395-85b1-c340e0f4e9f4.png);
+  content: "";
+  margin-left: 3px;
+  background-size: 16px;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
 }
 
 .def {
@@ -78,7 +202,7 @@ a:active {
   margin-top: 41px;
   margin-bottom: 10px;
   padding: 0.5em 1em;
-  border: 5px solid #ff0099;
+  border: 5px solid black;
 }
 
 .thm legend {
@@ -90,7 +214,7 @@ a:active {
   height: 25px;
   line-height: 25px;
   font-size: 17px;
-  background: #ff0099;
+  background: black;
   color: #ffffff;
   font-weight: bold;
   border-radius: 5px 5px 0 0;
@@ -113,6 +237,7 @@ a:active {
   padding: 0.25em 1em;
   margin: 2em 0;
   top: 0;
+  display: flex;
 }
 
 .proof:before, .proof:after {
@@ -149,6 +274,12 @@ a:active {
   margin: 0;
 }
 
+.proof div::after {
+  content: "□";
+  float: right;
+  font-size: 20px;
+}
+
 ol {
   counter-reset: cnt;
 }
@@ -170,4 +301,147 @@ ol li:before {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+/* 背景色を含めて印刷されるようにしたい */
+
+body {
+  -webkit-print-color-adjust: exact;
+}
+
+/* スクロールバーに丸みをつける */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #777777;
+  border-radius: 5px;
+}
+
+/* mouse over で tooltip */
+
+span[data-descr] {
+  position: relative;
+  text-decoration: underline;
+  color: #00F;
+  cursor: help;
+}
+
+span[data-descr]:hover::after {
+  content: attr(data-descr);
+  position: absolute;
+  left: 0;
+  top: 24px;
+  min-width: 200px;
+  border: 1px #aaaaaa solid;
+  border-radius: 10px;
+  background-color: #ffffcc;
+  padding: 12px;
+  color: #000000;
+  font-size: 14px;
+  z-index: 1;
+}
+
+code {
+  border-radius: 3px;
+  font-family: SFMonoRegular, monospace;
+  font-size: 12px;
+  
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table td, table th {
+  padding: 8px 16px;
+  border: solid 1px gray;
+}
+
+table tr.row-odd {
+  background-color: #204b56;
+}
+
+table tr.row-even {
+  background-color: inherit;
+}
+
+
+/*https://1-notes.com/css-circular-text-design/*/
+.container{
+}
+
+.circle-text {
+  position:relative;
+  width: 120px; /* 直径 */
+  height: 120px; /* 直径 */
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+  /* transform: rotate(-80deg); 円の回転 */
+  animation: rotate 32s steps(9600) 0s infinite;
+}
+
+.circle-text span {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 15px); /* 中心点、、文字サイズ分ずらす */
+  display: inline-block;
+  /* width: 30px; 文字サイズより小さくしない */
+  height: 60px; /* 半径 */
+  transform-origin: center bottom; /* 回転の基準点 */
+/*  border: solid 1px; */
+  font-family: "MadokaRunes";
+}
+
+
+.circle-text span:nth-child(1) {
+  transform: rotate(-10deg);
+  font-size: 40px;
+  width: 40px;
+}
+
+.circle-text span:nth-child(2) {
+  transform: rotate(45deg);
+  font-size: 25px;
+  width: 25px;
+}
+
+.circle-text span:nth-child(3) {
+  transform: rotate(90deg);
+  font-size: 35px;
+  width: 35;
+}
+
+.circle-text span:nth-child(4) {
+  transform: rotate(135deg);
+  font-size: 25px;
+  width: 25px;
+}
+
+.circle-text span:nth-child(5) {
+  transform: rotate(170deg);
+  font-size: 25px;
+  width: 25px;
+}
+
+.circle-text span:nth-child(6) {
+  transform: rotate(225deg);
+  font-size: 35px;
+  width: 35px;
+}
+
+.circle-text span:nth-child(7) {
+  transform: rotate(270deg);
+  font-size: 25px;
+  width: 25px;
+}
+
+.circle-text span:nth-child(8) {
+  transform: rotate(305deg);
+  font-size: 35px;
+  width: 35px;
 }

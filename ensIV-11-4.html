@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>物理学演習IV[4]</title>
+  <script src="mathjax-config.js" async></script>
+  <link rel="stylesheet" href="noire.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="lumières">
+  <meta property="og:description" content="発表資料">
+  <meta property="og:url" content="https://elle-et-noire.github.io/lumieres/">
+  <meta property="og:image" content="https://user-images.githubusercontent.com/51241098/139921229-151ff350-13df-40c0-8709-b575bb6fdc6a.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@L48610">
+  <link rel="shortcut icon" href="https://user-images.githubusercontent.com/51241098/139574778-08c0d89e-b88e-4faa-baf5-4ee2af007b81.png" type="image/png">
+</head>
+
+<body style="padding: 50px 200px 50px 200px">
+  \[
+    \def\Gammaf{\varGamma}
+    \def\i{i}
+    \def\e{e}
+  \]
+  <h2>[4] $\,1\,$次元イジング模型のくりこみ群</h2>
+  分配関数 $Z=\Tr \e^{-\beta\hat{H}}$ における Trace を全て同時にとることは一般には困難である。そのようなときでも、一部の Trace を先に行い、その影響をハミルトニアンのパラメーターに「くりこむ」ことで表現できる場合がある。このようなくりこみ変換は（半）群をなし、くりこみ群と呼ばれる。<br>
+  ここでは$\,1\,$次元 Ising 模型を例に考える。$\beta$ をかけ、ハミルトニアン（ここではエネルギー固有値）を無次元化し、次のように表わす。
+  \begin{align}
+    \tilde{E}_N\coloneqq \beta E(J,h)=-K\sum_{i=1}^N\sigma_i\sigma_{i+1}-\dfrac{H}{2}\sum_{i=1}^N(\sigma_i+\sigma_{i+1}).
+  \end{align}
+  ここで $K\coloneqq \beta J > 0,\ H\coloneqq \beta h$ であり、周期的境界条件 $\sigma_{N+1}\equiv\sigma_1$ を課す。
+  <fieldset class="thm">
+    <legend>小問1</legend>
+    <div>
+      隣接する$\,3\,$スピン $\qty{\sigma_1,\sigma_2,\sigma_3}$ に注目する。
+      \begin{align}
+        \sum_{\sigma_2=\pm 1}\exp\qty[K(\sigma_1\sigma_2+\sigma_2\sigma_3)+\dfrac{H}{2}(\sigma_1+2\sigma_2+\sigma_3)]=A\exp\qty[K'\sigma_1\sigma_3+\dfrac{H'}{2}(\sigma_1+\sigma_3)]\label{eq:threespin}
+      \end{align}
+      となるような $A,K',H'$ を求めよ。さらに、$\e^{2K}\sinh H=\e^{2K'}\sinh H'$ を示せ。
+    </div>
+  </fieldset>
+  \begin{align}
+    (\text{\eqref{eq:threespin}の左辺})&=\exp\qty[\qty(K+\dfrac{H}{2})(\sigma_1+\sigma_3)+H]+\exp\qty[\qty(-K+\dfrac{H}{2})(\sigma_1+\sigma_3)-H]\\
+    &=2\exp\qty[\dfrac{H}{2}(\sigma_1+\sigma_3)]\cosh\qty[K(\sigma_1+\sigma_3)+H]
+  \end{align}
+  これが\eqref{eq:threespin}の右辺に等しいとする。$\sigma_1,\sigma_3\in\qty{+1,-1}$ より
+  \begin{align}
+  (\sigma_1,\sigma_3)&=(1,1)\quad\colon& 2\e^H\cosh(2K+H)&=A\exp(K'+H')\label{eq:akhfirst}\\
+  (\sigma_1,\sigma_3)&=(1,-1),(-1,1)\quad\colon& 2\cosh H&=A\exp(-K')\label{eq:akhsecond}\\
+  (\sigma_1,\sigma_3)&=(-1,-1)\quad\colon& 2\e^{-H}\cosh(-2K+H)&=A\exp(K'-H')\label{eq:akhthird}
+  \end{align}
+  \eqref{eq:akhsecond}より $A=2\exp K'\cosh H$。\eqref{eq:akhfirst} と \eqref{eq:akhthird} をかけて
+  \begin{align}
+    4\underbrace{\cosh(2K+H)\cosh(-2K+H)}_{\ds\dfrac{\cosh 2H+\cosh 4K}{2}}&=A^2\exp (2K')=4\exp (4K')\underbrace{\cosh^2 H}_{\dfrac{\cosh 2H+1}{2}}\\
+    \therefore \exp 4K'&=\dfrac{\cosh(2K+H)\cosh(-2K+H)}{\cosh^2 H}=\dfrac{\cosh 2H+\cosh 4K}{\cosh 2H+1}\label{eq:expk}\\
+    \therefore K'&=\dfrac{1}{4}\ln \dfrac{\cosh 2H+\cosh 4K}{\cosh 2H+1}\label{eq:kdash}
+  \end{align}
+  と $K'$ が定まる。\eqref{eq:akhsecond}より
+  \begin{align}
+    A=2\sqrt[4]{\cosh(2K+H)\cosh(-2K+H)\cosh^2 H}
+  \end{align}
+  と $A$ が求まる。\eqref{eq:akhfirst}より
+  \begin{align}
+    \exp H'&=\exp(H-2K')\dfrac{\cosh(2K+H)}{\cosh H}\\
+    &=e^H\sqrt{\dfrac{\cosh^2 H}{\cosh(2K+H)\cosh(-2K+H)}}\dfrac{\cosh(2K+H)}{\cosh H}\\
+    &=e^H\sqrt{\dfrac{\cosh(2K+H)}{\cosh(-2K+H)}}\\
+    \therefore H'&=H+\dfrac{1}{2}\ln\dfrac{\cosh(2K+H)}{\cosh(-2K+H)}\label{eq:nexth}
+  \end{align}
+  と $H'$ が求まる。このとき
+  \begin{align}
+    2\e^{2K'}\sinh H'&=\e^H\dfrac{\cosh (2K+H)}{\cosh H}-e^{-H+4K'}\dfrac{\cosh H}{\cosh (2K+H)}\\
+    &=\e^H\dfrac{\cosh (2K+H)}{\cosh H}-e^{-H}\dfrac{\cosh (-2K+H)}{\cosh H}\\
+    &=\dfrac{1}{2\cosh H}(e^{2K+2H}+e^{-2K}-e^{-2K}-e^{2K-2H})\\
+    &=e^{2K}\dfrac{\sinh 2H}{\cosh H}\\
+    &=2e^{2K}\sinh H
+  \end{align}
+  となり、$e^{2K}\sinh H=e^{2K'}\sinh H'$ が成り立つ。
+  
+  <fieldset class="thm">
+    <legend>小問2</legend>
+    <div>
+      分配関数 $Z_N(K,H)=\ds\sum_{\qty{\sigma_i}}\exp(-\tilde{E}_N\qty(K,H))$ において偶数番号のスピンのみで和をとることによって、
+      $Z_N(K,H)=C\cdot Z_{N/2}(K',H')$ とかけることを示せ。ただし、$\ds Z_{N/2}=\sum_{\qty{\sigma_{2i-1}}}\exp[-\tilde{E}_{N/2}(K',H')]$。
+    </div>
+  </fieldset>
+  \begin{align}
+    Z_N(K,H)&=\sum_{\sigma_1=\pm 1}\sum_{\sigma_2=\pm 1}\cdots \sum_{\sigma_N=\pm 1}\prod_{i=1}^{N}\exp\qty[K\sigma_i\sigma_{i+1}+\dfrac{H}{2}(\sigma_i+\sigma_{i+1})]\\
+    &=\prod_{i=1}^{N}\sum_{\sigma_i=\pm 1}\exp\qty[K\sigma_i\sigma_{i+1}+\dfrac{H}{2}(\sigma_i+\sigma_{i+1})]\\
+    &=\prod_{i\colon\mathrm{odd}}\sum_{\sigma_i=\pm 1}\sum_{\sigma_{i+1}=\pm 1}\exp\qty[K(\sigma_i\sigma_{i+1}+\sigma_{i+1}\sigma_{i+2})+\dfrac{H}{2}(\sigma_i+2\sigma_{i+1}+\sigma_{i+2})]\\
+    &=\prod_{i\colon\mathrm{odd}}\sum_{\sigma_i=\pm 1}A\exp\qty[K'\sigma_i\sigma_{i+2}+\dfrac{H'}{2}(\sigma_i+\sigma_{i+2})]\\
+    &=\sum_{\sigma_1=\pm 1}\sum_{\sigma_3=\pm 1}\cdots \sum_{\sigma_{2\lceil N/2\rceil-1}=\pm 1}\ \prod_{i\colon\mathrm{odd}}A\exp\qty[K'\sigma_i\sigma_{i+2}+\dfrac{H'}{2}(\sigma_i+\sigma_{i+2})]\\
+    &=A^{N/2}\sum_{\qty{\sigma_{2i-1}}}\exp[-\tilde{E}_{N/2}(K',H')]
+  \end{align}
+  となる。
+  
+  <fieldset class="thm">
+    <legend>小問3</legend>
+    <div>
+      (2) の操作を繰り返し行うことで、パラメーター$(K,H)$ が変化していく様子（くりこみ群の流れ）を解析する。まず、(i) $K\gg1,\ K\gg H$ (ii) $K\ll 1$ の場合における漸近的振舞を求め、 $K$ は減少しながら $0$ に、$H$（$>0$ とする）は増加しながら有限の定数に収束することを示せ。さらに、ある点 $(K,H)$ から出発し、くりこみを繰り返した結果、$(0,H^\ast)$ という点（くりこみ群の固定点）に収束したとする。$H^\ast$ を求めよ。以上をもとに、くりこみ群の流れをおおまかに図示せよ。
+    </div>
+  </fieldset>
+  <ol>
+  <li>$K\gg 1, K\gg H$ の場合</li> \eqref{eq:expk} より
+  \begin{align}
+    e^{4K'}=\dfrac{\cosh 2H+\dfrac{e^{4K}+e^{-4K}}{2}}{\cosh 2H+1}\simeq \dfrac{e^{4K}}{2(\cosh 2H+1)} < e^{4K}
+  \end{align}
+  となり、$K$ は減少する。
+  <li>$K\ll 1$ の場合</li> \eqref{eq:expk} および $\sinh 4K\simeq 1+\dfrac{(4K)^2}{2}$ より
+  \begin{align}
+    \e^{4K'}&\simeq \dfrac{\cosh 2H+1+\dfrac{(4K)^2}{2}}{\cosh 2H+1}=1+\dfrac{16K^2}{2(\cosh 2H+1)} < 1+4K^2\simeq \e^{4K^2}\\
+    \therefore K' &< K^2 < K
+  \end{align}
+  となって減少し、また\eqref{eq:kdash} より $K'\ge 0$ なので $K$ は $0$ に漸近する。
+  </ol>また、\eqref{eq:nexth} より
+  \begin{align}
+    H'-H=\dfrac{1}{2}\ln\dfrac{\cosh(2K+H)}{\cosh(-2K+H)}
+  \end{align}
+  となり、単調増加することが分かる。$e^{2K}\sinh H=e^{2K'}\sinh H'$ が成り立つことから、$H$ は有界な範囲にとどまり、単調増加することと合わせて有限の定数に収束することが分かる。$(K,H)$ と $(0,H^\ast)$ の間にも成り立つことから
+  \begin{align}
+    e^{2K}\sinh H&=\sinh H^\ast\\
+    \therefore H^\ast &=\operatorname{arcsinh} (e^{2K}\sinh H)
+  \end{align}
+  と $H^\ast$ が求まる。<br>
+  <img src="iv-11-4_1.png" style="width:300px">
+  
+
+  <fieldset class="thm">
+    <legend>小問4</legend>
+    <div>
+      磁化 $\ds m\coloneqq\dfrac{1}{N}\sum_i\ev{\sigma_i}$ がくりこみ変換後も不変であること $m(K,H)=m(0,H^\ast)$ を利用し、磁化 $m(K,H)$ を求めよ。
+    </div>
+  </fieldset>
+  $(K,H)$ をくりこんで $(0,H^\ast)$ に達したときのスピン数を $N^\ast(=N/2^k,k\text{ はくりこんだ回数})$ とおく。そのときの分配関数 $Z_{N^\ast}(0,H^\ast)$ は
+  \begin{align}
+    Z_{N^\ast}(0,H^\ast)&=\sum_{\sigma_1=\pm 1}\cdots\sum_{\sigma_{N^\ast}=\pm 1}\prod_{i=1}^{N^\ast} \exp(H\sigma_i)\\
+    &=\prod_{i=1}^{N^\ast}2\cosh H^\ast\\
+    &=(2\cosh H^\ast)^{N^\ast}
+  \end{align}
+  と、相互作用の項が消える。ここから磁化を求めると
+  \begin{align}
+    m&=\dfrac{1}{N^\ast}\pdv{H^\ast}\ln Z_{N^\ast}\quad (\text{$H$ の中に $\beta$ が含まれている})\\
+    &=\pdv{H^\ast}\ln(2\cosh H^\ast)\\
+    &=\tanh H^\ast\\
+    &=\tanh \operatorname{arcsinh}(e^{2K}\sinh H)\\
+    &=\dfrac{e^{2K}\sinh H}{\sqrt{1+e^{4K}\sinh^2 H}}
+  \end{align}
+  となる。
+<!--
+  ここで $\cosh\qty[K(\sigma_1+\sigma_3)+H]=\exp[K'\sigma_1\sigma_3+L']$ とおき、$\sigma_1,\sigma_3\in\qty{+1,-1}$ を代入すると
+  \begin{align}
+    (\sigma_1,\sigma_3)=(1,1),(-1,-1)&\quad\colon& \cosh(2K+H)&=\exp(K'+L')&\therefore K'+L'&=\ln\cosh(2K+H)\\
+    (\sigma_1,\sigma_3)=(1,-1),(-1,1)&\quad\colon& 1&=\exp(K'-L')&\therefore K-L'&=0
+  \end{align}
+  となり、
+  \begin{align}
+    K'=L'&=\dfrac{1}{2}\ln\cosh(2K+H)\\
+    \therefore \cosh\qty[K(\sigma_1+\sigma_3)+H]&=\sqrt{\cosh(2K+H)}\exp\qty[\dfrac{1}{2}\ln\cosh(2K+H)\sigma_1\sigma_3]\\
+    \therefore (\text{\eqref{eq:threespin}の左辺})&=\underbrace{\sqrt{\cosh(2K+H)}}_{\ds A}\exp\qty\bigg[\underbrace{\dfrac{1}{2}\ln\cosh(2K+H)}_{\ds K'}\sigma_1\sigma_3+\underbrace{\dfrac{H}{2}}_{\ds H'/2}(\sigma_1+\sigma_3)]
+  \end{align} -->
+  <h2>参考文献</h2>
+  <ul>
+    <li><a href="http://www.cp.cmc.osaka-u.ac.jp/~kikuchi/texts/RG_1.pdf">ノート1:一次元イジングモデルの実空間繰り込み群</a></li>
+  </ul>
+</body>
+
+</html>
