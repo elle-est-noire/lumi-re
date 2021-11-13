@@ -1,30 +1,35 @@
 @font-face {
   font-family: "CloisterBlack";
-  src: url(CloisterBlack.ttf) format("truetype");
+  src: url(fonts/CloisterBlack.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "MadokaRunes";
-  src: url(MadokaRunes-2.0.ttf) format("truetype");
+  src: url(fonts/MadokaRunes-2.0.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "AppliMincho";
-  src: url(AppliMincho.otf) format("opentype");
+  src: url(fonts/ppliMincho.otf) format("opentype");
 }
 
 @font-face {
   font-family: "SFMonoRegular";
-  src: url(FontsFree-Net-SFMono-Regular.ttf) format("truetype");
+  src: url(fonts/FontsFree-Net-SFMono-Regular.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "HannariMincho";
-  src: url(HannariMincho-Regular.otf) format("opentype");
+  src: url(fonts/HannariMincho-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SawarabiMincho";
+  src: url(fonts/SawarabiMincho-Regular.ttf) format("truetype");
 }
 
 body {
-  font-family: "HannariMincho", serif;
+  font-family: "AppliMincho", serif;
   font-weight: 400;
   font-style: normal;
   background-color: #002b36;
@@ -90,11 +95,6 @@ body {
   margin-right: auto;
 }
 
-.wrapper {
-  overflow-x: auto;
-  overflow-y: hidden;
-  width: auto;
-}
 
 @media screen and (max-width: 767px) {
   body {
@@ -138,7 +138,6 @@ body {
 }
 
 a:link {
-  /* color: #79c0ff; */
   color: #ff88dd;
 }
 
@@ -147,14 +146,12 @@ a:visited {
 }
 
 a:hover {
-  /* color: #d2a8ff; */
   text-decoration: none;
 }
 
 a:active {
   color: #ffaaff;
   text-decoration: none;
-  /* font-size: smaller; */
 }
 
 a[target="_blank"]:after {
@@ -350,13 +347,14 @@ span[data-descr]:hover::after {
   z-index: 1;
 }
 
+/* LaTeX コマンドを MathJax 公式ドキュメントみたいな見た目にしたい */
 code {
   border-radius: 3px;
   font-family: SFMonoRegular, monospace;
   font-size: 12px;
-  
 }
 
+/* 表も縞々にしたい */
 table {
   border-collapse: collapse;
 }
@@ -375,78 +373,27 @@ table tr.row-even {
 }
 
 
-/*https://1-notes.com/css-circular-text-design/*/
-.container{
+.wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: auto;
 }
+/* 数式にスクロールバー https://ramenhuhu.com/wordpress-mathjaxlatex-scroll */
 
-.circle-text {
-  position:relative;
-  width: 120px; /* 直径 */
-  height: 120px; /* 直径 */
-  font-size: 30px;
-  text-align: center;
-  margin: 0;
-  /* transform: rotate(-80deg); 円の回転 */
-  animation: rotate 32s steps(9600) 0s infinite;
+div.scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
 }
-
-.circle-text span {
-  position: absolute;
-  top: 0;
-  left: calc(50% - 15px); /* 中心点、、文字サイズ分ずらす */
-  display: inline-block;
-  /* width: 30px; 文字サイズより小さくしない */
-  height: 60px; /* 半径 */
-  transform-origin: center bottom; /* 回転の基準点 */
-/*  border: solid 1px; */
-  font-family: "MadokaRunes";
+.scroll::-webkit-scrollbar {
+  width:15px;
 }
-
-
-.circle-text span:nth-child(1) {
-  transform: rotate(-10deg);
-  font-size: 40px;
-  width: 40px;
+.scroll::-webkit-scrollbar-thumb {
+  background: #f70841;
+  border-radius: 10px;
 }
-
-.circle-text span:nth-child(2) {
-  transform: rotate(45deg);
-  font-size: 25px;
-  width: 25px;
+.scroll::-webkit-scrollbar-track-piece:start {
+  background: #ffa5ba;
 }
-
-.circle-text span:nth-child(3) {
-  transform: rotate(90deg);
-  font-size: 35px;
-  width: 35;
-}
-
-.circle-text span:nth-child(4) {
-  transform: rotate(135deg);
-  font-size: 25px;
-  width: 25px;
-}
-
-.circle-text span:nth-child(5) {
-  transform: rotate(170deg);
-  font-size: 25px;
-  width: 25px;
-}
-
-.circle-text span:nth-child(6) {
-  transform: rotate(225deg);
-  font-size: 35px;
-  width: 35px;
-}
-
-.circle-text span:nth-child(7) {
-  transform: rotate(270deg);
-  font-size: 25px;
-  width: 25px;
-}
-
-.circle-text span:nth-child(8) {
-  transform: rotate(305deg);
-  font-size: 35px;
-  width: 35px;
+.scroll::-webkit-scrollbar-track-piece:end {
+  background: #ffa5ba;
 }
