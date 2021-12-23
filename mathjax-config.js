@@ -1,8 +1,8 @@
 window.MathJax = {
-  loader: {load: ['[tex]/physics', '[tex]/mathtools', '[tex]/color', '[tex]/upgreek']},
+  loader: {load: ['[tex]/physics', '[tex]/mathtools', '[tex]/color', '[tex]/upgreek', '[tex]/centernot']},
   tex: {
     inlineMath: [['$', '$'], ['\\(', '\\)']],
-    packages: { '[+]': ['physics', 'mathtools', 'color', 'upgreek'] },
+    packages: { '[+]': ['physics', 'mathtools', 'color', 'upgreek', 'centernot'] },
     color: {
       padding: '5px',
       borderWidth: '2px',
@@ -30,6 +30,7 @@ window.MathJax = {
       i: '{\\mathrm{i}}',
       e: '{\\mathrm{e}}',
       ve: '{\\varepsilon}',
+      slashed: ['{{#1\\!\\!\\!/}}', 1],
     },
     physics: {
       italicdiff: true,

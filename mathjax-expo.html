@@ -95,7 +95,7 @@
       <td><code>\xi</code></td><td>$\xi$</td><td><code>\upxi</code></td><td>$\upxi$</td><td>ξ</td><td><code>\Xi</code></td><td>$\Xi$</td><td><code>\varXi</code></td><td>$\varXi$</td><td>Ξ</td>
     </tr>
     <tr class="row-odd">
-      <td><code>\omicron</code></td><td>$\omicron$</td><td><code>\upomicron</code></td><td>$\upomicron$</td><td>o</td><td></td><td></td><td></td><td></td><td>Ο</td>
+      <td><code>\omicron</code></td><td>$\omicron$</td><td><code>\upomicron</code></td><td>$\upomicron$</td><td>ο</td><td></td><td></td><td></td><td></td><td>Ο</td>
     </tr>
     <tr class="row-even">
       <td><code>\pi</code></td><td>$\pi$</td><td><code>\uppi</code></td><td>$\uppi$</td><td>π</td><td><code>\Pi</code></td><td>$\Pi$</td><td><code>\varPi</code></td><td>$\varPi$</td><td>Π</td>
@@ -137,6 +137,40 @@
       <td><code>\omega</code></td><td>$\omega$</td><td><code>\upomega</code></td><td>$\upomega$</td><td>ω</td><td><code>\Omega</code></td><td>$\Omega$</td><td><code>\varOmega</code></td><td>$\varOmega$</td><td>Ω</td>
     </tr>
   </table>
+  <h2>Feynman slash</h2>
+  物理理学的には理解していませんがとりあえず。
+  \begin{align}
+    \slashed{\partial}\slashed{A}
+  \end{align}
+  <h2>バー付きλ</h2>
+  J.J. Sakuraiの量子力学で $\lambda/2\pi$ として登場しました。
+  $$
+  \newcommand{\lambdabar}{\lambda \kern -0.55em\raise 0.6ex \hbox{--}}
+  $$
+  \begin{align}
+    2\pi\lambdabar=\lambda
+  \end{align}
+  <h2>開区間</h2>
+  Twitterで開区間の記号を提案していた人がいて、そのアイデアをMathJaxで実現しました。$\LaTeX$でも使えるはず。
+  $$
+  \definecolor{bg}{rgb}{0, 0.168, 0.212}
+  \newcommand{\filledcirca}{{\raise 0.1ex{\scriptsize\bullet}\kern -0.37em\raise -0.3ex{\color{bg}\Large\cdot}}}
+  \newcommand{\filledcirc}{{\raise 0.2ex{\color{bg}\tiny\bullet}\kern -0.25em\raise 0.2ex{\color{white}\tiny\circ}}}
+  \newcommand{\livo}{{\kern 0.1em[\kern -0.28em\filledcirc\kern 0.1em}}
+  \newcommand{\rivo}{{\kern 0.1em]\kern -0.30em\filledcirc\kern 0.1em}}
+  \DeclarePairedDelimitersX{\ivoo}[2]{\livo}{\rivo}{{#1},{#2}}
+  \DeclarePairedDelimitersX{\ivoc}[2]{\livo}{]}{{#1},{#2}}
+  \DeclarePairedDelimitersX{\ivco}[2]{[}{\rivo}{{#1},{#2}}
+  \DeclarePairedDelimitersX{\ivcc}[2]{[}{]}{{#1},{#2}}
+  \DeclarePairedDelimitersX{\ivooa}[2]{]}{[}{{#1},{#2}}
+  \DeclarePairedDelimiters{\IntervalOO}{]}{[}
+  \newcommand{\ivoob}[2]{\IntervalOO*{#1, #2}}
+  $$
+  \begin{align}
+    &\ivoo{a}{b}\{\ivoo{a}{b}\}\ivoo{-1}{1},[-1,1],\ivooa*{-1}{\dfrac{1}{f}},\ivoob{-1}{\dfrac{1}{f}}\\
+    &a\ivoo{c}{d}a[c,d]a
+  \end{align}
+  $\theta\in\ivoo{0}{1}, \phi\in\ivco{0}{2\pi}, x\in \ivoc{-1}{0}$
   <h2>参考文献</h2>
   <ul>
     <li><a href="https://ja.wikipedia.org/wiki/Unicode%E4%B8%80%E8%A6%A7_0000-0FFF" target="_blank" rel="noopener noreferrer external">Unicode一覧 0000-00FF - Wikipedia</a></li>
