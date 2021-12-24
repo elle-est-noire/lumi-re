@@ -155,9 +155,10 @@
   $$
   \definecolor{bg}{rgb}{0, 0.168, 0.212}
   \newcommand{\filledcirca}{{\raise 0.1ex{\scriptsize\bullet}\kern -0.37em\raise -0.3ex{\color{bg}\Large\cdot}}}
-  \newcommand{\filledcirc}{{\raise 0.2ex{\color{bg}\tiny\bullet}\kern -0.25em\raise 0.2ex{\color{white}\tiny\circ}}}
-  \newcommand{\livo}{{\kern 0.1em[\kern -0.28em\filledcirc\kern 0.1em}}
-  \newcommand{\rivo}{{\kern 0.1em]\kern -0.30em\filledcirc\kern 0.1em}}
+  \newcommand{\filledcircb}{{\raise 0.2ex{\color{bg}\tiny\bullet}\kern -0.25em\raise 0.2ex{\color{white}\tiny\circ}}}
+  \newcommand{\filledcirc}{{\raise 0.1ex{\color{bg}\scriptsize\bullet}\kern -0.35em\raise 0.1ex{\scriptsize\circ}}}
+  \newcommand{\livo}{{\kern 0.1em[\kern -0.32em\filledcirc\kern 0.1em}}
+  \newcommand{\rivo}{{\kern 0.1em]\kern -0.32em\filledcirc\kern 0.1em}}
   \DeclarePairedDelimitersX{\ivoo}[2]{\livo}{\rivo}{{#1},{#2}}
   \DeclarePairedDelimitersX{\ivoc}[2]{\livo}{]}{{#1},{#2}}
   \DeclarePairedDelimitersX{\ivco}[2]{[}{\rivo}{{#1},{#2}}
