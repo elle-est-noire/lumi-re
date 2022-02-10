@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>Arnold§47,48</title>
+  <script src="mathjax-config.js" async></script>
+  <link rel="stylesheet" href="noire.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="lumières">
+  <meta property="og:description" content="Arnold§47,48">
+  <meta property="og:url" content="https://elle-et-noire.github.io/lumieres/">
+  <meta property="og:image" content="https://user-images.githubusercontent.com/51241098/139921229-151ff350-13df-40c0-8709-b575bb6fdc6a.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@L48610">
+  <link rel="shortcut icon" href="https://user-images.githubusercontent.com/51241098/139574778-08c0d89e-b88e-4faa-baf5-4ee2af007b81.png" type="image/png">
+</head>
+
+<body>
+  <H1>§47</H1>
+  <H2>A 母関数</H2>
+  正準変換 $g\colon\mathbb{R}^{2n}\to\mathbb{R}^{2n}$ によって $(\bm{p},\bm{q})$ が $(\bm{P},\bm{Q})$ に移るとき
+  \begin{align}
+    \bm{p}\dd{\bm{q}}-\bm{P}\dd{\bm{Q}}=\dd{S(\bm{p},\bm{q})}\label{eq:genS}
+  \end{align}
+  と表せる。実際、$g$ が正準変換なら $\omega^2=\dd{\bm{p}}\wedge\dd{\bm{q}}$ を保つので Stokes の定理から $\ds\oint_\gamma \bm{p}\dd{\bm{q}}=\oint_\gamma\bm{P}\dd{\bm{Q}}$ となり、
+  $\bm{p}\dd{\bm{q}}-\bm{P}\dd{\bm{Q}}$ の積分は端点のみに依存して経路に依らない（始点を固定すれば終点のみの関数）。よってある関数 $S(\bm{p},\bm{q})$ があって\eqref{eq:genS}が成り立つ。
+
+  ある点 $(\bm{p}_0,\bm{q}_0)$ の近傍で $(\bm{Q},\bm{q})$ が
+  \begin{align}
+    \eval{\det\pdv{(\bm{Q},\bm{q})}{(\bm{p},\bm{q})}}_{(\bm{p}_0,\bm{q}_0)}=\eval{\det\pdv{\bm{Q}}{\bm{p}}}_{(\bm{p}_0,\bm{q}_0),\bm{q}=\mathrm{const.}}\neq 0
+  \end{align}
+  を満たすとき、正準変換 $g$ は<strong>自由</strong>であるという。これは $(\bm{Q},\bm{q})$ が独立で、したがって座標として使えることを意味し、\eqref{eq:genS}の $S$ は
+  \begin{align}
+    S(\bm{p},\bm{q})=S_1(\bm{Q},\bm{q})
+  \end{align}
+  とも表せるはずである。この $S_1$ を正準変換 $g$ の<strong>母関数</strong>と呼ぶ。$S_1\colon \mathbb{R}^n_\bm{q}\times\mathbb{R}^n_\bm{Q}\to\mathbb{R}$ であって、
+  定義域は $\mathbb{R}^{2n}$ ではないことに注意（←意味合いの違いだけで数学的には同じ？）。\eqref{eq:genS}より
+  \begin{align}
+    \pdv{S_1(\bm{Q},\bm{q})}{\bm{q}}=\bm{p}\qc\pdv{S_1(\bm{Q},\bm{q})}{\bm{Q}}=-\bm{P}.
+  \end{align}
+  
+  <fieldset class="thm">
+    <legend>定理</legend>
+    <div>
+      $S_1(\bm{Q},\bm{q})$ が $(\bm{Q}_0,\bm{q}_0)$ の近傍で定義されているとする。
+      \begin{align}
+        \eval{\det\pdv{S_1}{\bm{Q}}{\bm{q}}}_{\bm{Q}_0,\bm{q}_0}\neq 0\label{eq:s1-fullrank}
+      \end{align}
+      ならば $S_1$ は自由な正準変換の母関数である。
+    </div>
+  </fieldset>
+  <details class="proof" open>
+    <summary>証明</summary>
+    <div>
+      \begin{align}
+        \bm{p}\coloneqq \pdv{S_1(\bm{Q},\bm{p})}{{\bm{q}}}
+      \end{align}
+      として $\bm{p}$ を定める。陰関数定理（$\ds\det{\pdv{f}{y}}\neq 0$ ならば $f(x,y)=0\iff y=g(x)$ なる $g$ が存在する。ここでは $f=\ds\pdv{S_1}{\bm{q}},g=\bm{Q}$）の条件は\eqref{eq:s1-fullrank}で満たされているので
+      $\bm{Q}=\bm{Q}(\bm{p},\bm{q})$ と書ける。また、
+      \begin{align}
+        \bm{p}_0\coloneqq \eval{\pdv{S_1(\bm{Q},\bm{q})}{\bm{q}}}_{\bm{Q}_0,\bm{q}_0}
+      \end{align}
+      と定める（こうすれば $Q(\bm{p}_0,\bm{q}_0)=\bm{Q}_0$ も成り立つ）。
+      \begin{align}
+        \bm{P}_1&\coloneqq -\pdv{S_1(\bm{Q},\bm{q})}{\bm{Q}},\\
+        \bm{P}&\coloneqq\bm{P}_1(\bm{Q}(\bm{q},\bm{q}),\bm{q})
+      \end{align}
+      とすれば
+      \begin{align}
+        \bm{p}\dd{\bm{q}}-\bm{P}\dd{\bm{Q}}=\pdv{S_1(\bm{Q},\bm{q})}{\bm{q}}\dd{\bm{q}}+\pdv{S_1(\bm{Q},\bm{q})}{\bm{Q}}\dd{\bm{Q}}=\dd{S_1(\bm{Q},\bm{q})}
+      \end{align}
+      となり、\eqref{eq:genS}を満たすので、$(\bm{p},\bm{q})$ を $(\bm{P},\bm{Q})$ に移す変換は正準変換である。さらに
+      \begin{align}
+        \mathbb{1}_{n}=\pdv{\bm{p}}{\bm{p}}=\pdv{S_1}{\bm{p}}{\bm{q}}=\pdv{S_1}{\bm{Q}}{\bm{q}}\cdot\pdv{\bm{Q}}{\bm{q}}
+      \end{align}
+      より
+      \begin{align}
+        \det{\pdv{\bm{Q}}{\bm{q}}}=\qty(\det{\pdv{S_1}{\bm{Q}}{\bm{q}}})^{-1}\neq 0
+      \end{align}
+      なので自由な正準変換であり、$S_1$ はその母関数である。
+    </div>
+  </details>
+  一般に正準変換は $\mathbb{R}^{2n}\to\mathbb{R}^{2n}$ の関数であるが、母関数は $\mathbb{R}^{2n}\to\mathbb{R}$ であり、有用。
+
+  <h2>B 母関数に対するハミルトン-ヤコビ方程式</h2>
+  <fieldset class="thm">
+    <legend>Jacobi's theorem</legend>
+    <div>
+      ハミルトン-ヤコビ方程式
+      \begin{align}
+        H\qty(\pdv{S(\bm{Q},\bm{q})}{\bm{q}},\bm{q},t)=K(\bm{Q},t)\qq{where}\bm{q}=\bm{q}(\bm{P},\bm{Q})\label{eq:hamilton-jacobi1}
+      \end{align}
+      （$H(\bm{p},\bm{q},t)$ に $\bm{p}=\ds\pdv{S}{\bm{q}}$ を代入したもの）の解 $S(\bm{Q},\bm{q})$ が与えられたとする。
+      ただし、$S$ は $n$ 個の $Q_i$ に依存し、かつ $\ds\det\pdv{S}{\bm{Q}}{\bm{q}}\neq 0$。このとき正準方程式
+      \begin{align}
+        \dot{\bm{p}}=-\pdv{H}{\bm{q}}\qc\dot{\bm{q}}=\pdv{H}{\bm{p}}\label{eq:hamilton}
+      \end{align}
+      は陽に積分によって解ける。また、$\bm{Q}(\bm{p},\bm{q})$ は運動の第一積分になる。
+    </div>
+  </fieldset>
+  <details class="proof" open>
+    <summary>証明</summary>
+    <div>
+      $S(\bm{Q},\bm{p})$ が与えれると、$\ds\pdv{S}{\bm{q}}=\bm{p}$ によって $\bm{p}$ が定まり、前定理の証明と同じように
+      陰関数定理から $\bm{Q}(\bm{p},\bm{q})$ が定まる。$H(\bm{p},\bm{q})$ を変換後の座標 $(\bm{P},\bm{Q})$ で表すことを考える。
+      $H(\bm{p},\bm{q})=H\ds\qty(\pdv{S(\bm{Q},\bm{q})}{\bm{q}},\bm{q})$ とでき、さらに $\bm{q}=\bm{q}(\bm{P},\bm{Q})$ を代入すれば
+      $H$ は $\bm{P},\bm{Q}$ で表されるが、\eqref{eq:hamilton-jacobi1}の右辺には $\bm{P}$ が含まれていない。よってある $K$ によって $H(\bm{p},\bm{q})=K(\bm{Q})$ と
+      表されることになる。このとき\eqref{eq:hamilton}は
+      \begin{align}
+        \dot{\bm{Q}}=0\qc\dot{\bm{P}}=\pdv{K}{\bm{Q}}
+      \end{align}
+      となり、積分して
+      \begin{align}
+        \bm{Q}(t)=\bm{Q}(0)\qc\bm{P}(t)=\bm{P}(0)+\int^t\dd{t}\eval{\pdv{K}{\bm{Q}}}_{\bm{Q}(0)}
+      \end{align}
+      と求めることが出来る。$\bm{Q}$ は定数になっている。
+    </div>
+  </details>
+
+  <H2>C 例</H2>
+  省略します。
+
+  <H1>48 母関数</H1>
+  <H2>母関数 $S_2(\bm{P},\bm{q})$</H2>
+    上の母関数 $S_1(\bm{Q},\bm{q})$ は、$\bm{Q}=\bm{q}$ の恒等変換を表せなかったりして、全ての正準変換を生成するわけではない。そこで、ルジャンドル変換によって
+    別の母関数を得ることを考える。今度は座標が
+    \begin{align}
+      \det\pdv{(\bm{\bm{P}},\bm{q})}{(\bm{p},\bm{q})}=\eval{\det\pdv{\bm{P}}{\bm{p}}}_{\bm{q}=\mathrm{const.}}\neq 0
+    \end{align}
+    という条件を満たしているとすると、独立な座標は $(\bm{P},\bm{q})$ であり、\eqref{eq:genS}$\bm{p}\dd{\bm{q}}-\bm{P}\dd{\bm{Q}}=\dd{S}$を変形して
+    \begin{align}
+      \bm{p}\dd{\bm{q}}+\bm{Q}\dd{\bm{P}}=\dd{(\bm{PQ}+S)}\eqref{eq:genS2}
+    \end{align}
+    となる。右辺は $\bm{P},\bm{q}$ の関数。
+    \begin{align}
+      S_2&\coloneqq \bm{PQ}+S(\bm{p},\bm{q})\\
+      \bm{p}&=\pdv{S_2(\bm{P},\bm{q})}{\bm{q}}\qc\bm{Q}=\pdv{S_2(\bm{P},\bm{q})}{\bm{P}}\label{eq:genS2pde}
+    \end{align}
+    によって正準変換が得られる。逆に、関数 $S_2(\bm{P},\bm{q})$ がある点 $(\bm{P}_0,\bm{q}_0)$ の近傍で
+    \begin{align}
+      \eval{\det\pdv{S_2(\bm{P},\bm{q})}{\bm{q}}{\bm{P}}}_{\bm{P}_0,\bm{q}_0}\neq 0
+    \end{align}
+    を満たすとき、\eqref{eq:genS2pde}の前半と陰関数定理から $(\bm{p}_0,\bm{q}_0)$（$\bm{p}_0\coloneqq \ds\eval{\pdv{S_2(\bm{P},\bm{q})}{\bm{q}}}_{\bm{P}_0,\bm{q}_0}$）の近傍で
+    $\bm{P}(\bm{p},\bm{q})$ が得られる。\eqref{eq:genS2pde}の後半から $\bm{Q}$ も求まる。このとき $\bm{p},\bm{q},\bm{P},\bm{Q}$ は\eqref{eq:genS2}すなわち\eqref{eq:genS}を満たすので
+    正準変換である。
+    $S_2=\bm{P}\bm{q}$ のとき恒等な正準変換が得られる（覚えやすい！）。
+
+    <H2>$2^n$ 母関数</H2>
+    $\bm{P},\bm{q}$ もいつでも独立な局所座標として選べるわけではないが、変換後の $\bm{P},\bm{Q}$ の $2n$ 個から、$\bm{q}$ に独立な $n$ 個を選ぶことはできる。
+    \begin{align}
+      \bm{P}_i=(P_{i_1},\dots,P_{i_k})\qc\bm{Q}_j=(Q_{j_1},\dots, Q_{j_{n-k}})\quad (\qty{i_1,\dots,i_k,j_1,\dots,j_{n-k}}=\qty{1,\dots,n})
+    \end{align}
+    とする。選び方は $2^n$ 通り。
+    <fieldset class="thm">
+      <legend>定理</legend>
+      <div>
+        $(\bm{p},\bm{q})$ がある正準変換によって $(\bm{P},\bm{Q})$ に移ったとする。任意の点 $(\bm{p}_0,\bm{q}_0)$ の近傍で、$2^n$ 個のうち少なくともひとつ $(\bm{P}_i,\bm{Q}_j,\bm{q})$ を
+        \begin{align}
+          \det\pdv{(\bm{P}_i,\bm{Q}_j,\bm{q})}{(\bm{p}_i,\bm{p}_j,\bm{q})}=\det\pdv{(\bm{P}_i,\bm{Q}_j)}{(\bm{p}_i,\bm{p}_j)}\neq 0
+        \end{align}
+        となるように（$(\bm{p}_0,\bm{q}_0)$ に依存して）選べる。$(\bm{p}_0,\bm{q}_0)$ の近傍で
+        \begin{align}
+          S_3(\bm{P}_i,\bm{Q}_j,\bm{q})&=\bm{P}_i\bm{Q}_i+\int \qty(\bm{p}\dd{\bm{q}}-\bm{Q}\dd{\bm{Q}})
+        \end{align}
+        を定義すると
+        \begin{align}
+          \dd{S_3}&=\bm{Q}_i\dd{\bm{P}_i}+\bm{P}_i\dd{\bm{Q}_i}+\bm{p}\dd{\bm{q}}-\bm{P}\dd{\bm{Q}}\\
+          &=\bm{p}\dd{\bm{q}}+\bm{Q}_i\dd{\bm{P}_i}-\bm{P}_j\dd{\bm{Q}_j}
+        \end{align}
+        となり
+        \begin{align}
+          \bm{p}=\pdv{S_3}{\bm{q}}\qc\bm{Q}_i=\pdv{S_3}{\bm{P_i}}\qc\bm{P}_j=-\pdv{S_3}{\bm{Q}_j} \label{eq:genS3pdv}
+        \end{align}
+        によって正準変換が得られる。逆に関数 $S_3(\bm{P}_i,\bm{Q}_j,\bm{q})$ が $\ds\eval{\det\pdv{S_3}{\bm{P}}{\bm{q}}}_{\bm{P}_0,\bm{q}_0}\neq 0$ を
+        満たせば\eqref{eq:genS3pdv}によって $\bm{p}_0,\bm{q}_0$ 近傍での正準変換が得られる。
+      </div>
+    </fieldset>
+    <H2>C 無限小の正準変換</H2>
+    恒等変換に近い正準変換を考える。母関数が
+    \begin{align}
+      \bm{Pq}+\ve S(\bm{P},\bm{q};\ve)\qc \bm{p}=\bm{P}+\ve\pdv{S}{\bm{q}}\qc\bm{Q}=\bm{q}+\ve\pdv{S}{\bm{P}}
+    \end{align}
+    二つの母関数が $\order{\ve^2}$ の差を除いて一致していれば同一視する。
+    <fieldset class="thm">
+      <legend>定理</legend>
+      無限小の正準変換は正準方程式を満たす：
+      <div>
+        \begin{align}
+        \eval{\pdv{\bm{P}}{\ve}}_{\ve=0}=-\pdv{H}{\bm{q}}\qc\eval{\pdv{\bm{Q}}{\ve}}_{\ve=0}=\pdv{H}{\bm{p}}\qq{where}H(\bm{p},\bm{q})=S(\bm{p},\bm{q},0)
+        \end{align}
+      </div>
+    </fieldset>
+    <fieldset class="thm">
+      <legend>系</legend>
+      <div>
+        相空間 $\mathbb{R}^{2n}$ の変換がなす1係数部分群が正準方程式を満たす $\iff$ 変換が正準。
+      </div>
+    </fieldset>
+    $H$ は無限小正準変換の母関数と呼ばれる。（$S$ がある領域内での正準変換を生成するのに対して、$H$ は1点での正準変換を生成する？）
+</body>
+
+</html>

@@ -30,6 +30,7 @@ body {
   padding: 50px 50px 50px 50px;
   font-kerning: normal;
   font-feature-settings: "palt"; /* 字詰め（目下意味なし） */
+  scroll-behavior: smooth;
 }
 
 /* カーニングを備えたフォントに切り替える */
